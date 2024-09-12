@@ -44,7 +44,7 @@ print(len(redgifs_submissions))
 
 filename = 'to_upload.mp4'
 all_urls_ever = []
-for x in range(0,300):
+for x in range(0,50):
 	print(x)
 	if os.path.exists(filename):
 		os.remove(filename)
@@ -97,7 +97,7 @@ for x in range(0,300):
 
 		all_urls_ever.append(submission_url)
 		print('pausing')
-		time.sleep(35) #random.choice(range(7000))
+		time.sleep(600) #random.choice(range(7000))
 	except Exception:
 		print('error in flow')
 		print(traceback.format_exc())
