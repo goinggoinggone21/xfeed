@@ -49,11 +49,10 @@ for x in range(0,50):
 	if os.path.exists(filename):
 		os.remove(filename)
 	try:
-		submission_url = ''
+		submission_url = random.choice(redgifs_submissions) #submission_url = ''
 		while (not os.path.isfile(filename)) & (str(submission_url) not in all_urls_ever):
-			submission_url = random.choice(redgifs_submissions)
 			video_url = helper.get_redgifs_embedded_video_url(redgifs_url=submission_url, output_fn=filename)
-
+		print(submission_url)
 		total_bytes = os.path.getsize(filename)
 		print(total_bytes)
 		resp = twitter_api_authorized.upload_media_chunked_init(
