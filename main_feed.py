@@ -35,6 +35,16 @@ twitter_api_authorized = Api(
 	oauth_flow=True
 	)
 
+#Load all list to remove duplicates
+try:
+	with open ('all_urls_ever.ob', 'rb') as fp:
+		all_urls_ever = pickle.load(fp)
+		#print(todays_alreadysent_list)
+except:
+	all_urls_ever = []
+
+
+#Load Reddits
 redgifs_submissions = [x.url for x in reddit.subreddit('MikeAdriano').top(time_filter='year',limit=10000) if ('redgifs' in x.url)] 
 redgifs_submissions = redgifs_submissions + [x.url for x in reddit.subreddit('MikeAdriano').top(time_filter='month',limit=1000) if ('redgifs' in x.url)] 
 print(len(redgifs_submissions))
@@ -43,13 +53,14 @@ print(len(redgifs_submissions))
 
 
 filename = 'to_upload.mp4'
-all_urls_ever = []
+#all_urls_ever = []
 for x in range(0,50):
 	print(x)
 	if os.path.exists(filename):
 		os.remove(filename)
 	try:
 		submission_url = random.choice(redgifs_submissions) #submission_url = ''
+		print(submission_url)
 		while (not os.path.isfile(filename)) & (str(submission_url) not in all_urls_ever):
 			video_url = helper.get_redgifs_embedded_video_url(redgifs_url=submission_url, output_fn=filename)
 		print(submission_url)
@@ -95,6 +106,9 @@ for x in range(0,50):
 		#os.remove(filename)
 
 		all_urls_ever.append(submission_url)
+		with open('all_urls_ever.ob', 'wb') as fp:
+			#pickle.dump([], fp)
+			pickle.dump(all_urls_ever, fp)
 		print('pausing')
 		time.sleep(600) #random.choice(range(7000))
 	except Exception:
