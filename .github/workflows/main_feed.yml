@@ -2,7 +2,7 @@ name: Feed
 
 on:
   schedule:
-    - cron: "0 13,23 * * *"
+    - cron: "0 0 1 1 *" #"0 13,23 * * *"
   workflow_dispatch:
 
 env:
