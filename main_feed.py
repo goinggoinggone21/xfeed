@@ -69,8 +69,8 @@ for x in range(0,50):
 		if int(total_bytes) < 1000000:
 			print('File Size Too Small')
 			with open('all_urls_ever.ob', 'wb') as fp:
-			#pickle.dump([], fp)
-			pickle.dump(all_urls_ever, fp)
+				#pickle.dump([], fp)
+				pickle.dump(all_urls_ever, fp)
 			continue
 		resp = twitter_api_authorized.upload_media_chunked_init(
 			total_bytes=total_bytes,
