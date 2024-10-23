@@ -29,7 +29,9 @@ def get_redgifs_embedded_video_url(redgifs_url, output_fn):
 		print(request)
 		
 		if request is None:
-			return
+			with open(output_fn, 'wb') as f:
+				f.write('No File to save')
+			return 
 		else:
 			rawData = request.json()
 			#print(rawData)
@@ -49,8 +51,9 @@ def get_redgifs_embedded_video_url(redgifs_url, output_fn):
 
 			return hd_video_url
 	except Exception:
+		print('error in helper.get_redgifs_embedded_video_url: ')
 		traceback.print_exc()
-		return
+		return 
 def convert_hastag_to_at(tweet_title_):
 	if '#AngelWicky' in   tweet_title_:
 		return  tweet_title_.replace('#AngelWicky','@Angel_Wicky_II')

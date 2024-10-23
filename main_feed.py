@@ -63,9 +63,15 @@ for x in range(0,50):
 		print(submission_url)
 		while (not os.path.isfile(filename)) & (str(submission_url) not in all_urls_ever):
 			video_url = helper.get_redgifs_embedded_video_url(redgifs_url=submission_url, output_fn=filename)
-		print(submission_url)
+		print('submission_url: ', submission_url)
 		total_bytes = os.path.getsize(filename)
-		print(total_bytes)
+		print('total_bytes: ', total_bytes)
+		if int(total_bytes) < 1000000:
+			print('File Size Too Small')
+			with open('all_urls_ever.ob', 'wb') as fp:
+			#pickle.dump([], fp)
+			pickle.dump(all_urls_ever, fp)
+			continue
 		resp = twitter_api_authorized.upload_media_chunked_init(
 			total_bytes=total_bytes,
 			media_type="video/mp4",
