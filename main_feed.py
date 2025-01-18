@@ -126,7 +126,7 @@ try:
     print(resp)
 
 
-    time.sleep(5)
+    time.sleep(30)
     resp = twitter_api_authorized.upload_media_chunked_status(media_id=media_id)
     print(resp)
 
