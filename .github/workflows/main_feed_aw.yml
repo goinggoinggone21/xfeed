@@ -26,7 +26,7 @@ jobs:
       #    sudo apt install libtesseract-dev
       - name: Install Python requirements
         run: pip install python-twitter-v2 praw requests #-U redgifs #-r requirements.txt
-      - name: Run Feed
+      - name: Run Feed_AW
         run: python main_feed_aw.py ${{secrets.REDDIT_CLIENT_ID}} ${{secrets.REDDIT_CLIENT_SECRET}} ${{secrets.REDDIT_PASSWORD}} ${{secrets.REDDIT_USER_AGENT}} ${{secrets.REDDIT_USER_NAME}} ${{secrets.TWITTER_ACCESS_TOKEN_AW}} ${{secrets.TWITTER_ACCESS_TOKEN_SECRET_AW}} ${{secrets.TWITTER_CONSUMER_KEY_AW}} ${{secrets.TWITTER_CONSUMER_SECRET_AW}} 
       #- name: Set env vars
       #  run: |
