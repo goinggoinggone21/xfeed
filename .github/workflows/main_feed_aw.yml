@@ -1,0 +1,41 @@
+name: Feed
+
+on:
+  schedule:
+    - cron: "0 7 * * *" #"0 13,23 * * *" #"0 0 1 1 *"
+  workflow_dispatch:
+
+env:
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+
+jobs:
+  scrape-latest:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v2.0.0
+        with:
+          python-version: '3.9'
+      #- name: Install Linux requirements
+      #  run: |
+      #    sudo apt update
+      #    sudo apt install tesseract-ocr
+      #    sudo apt install libtesseract-dev
+      - name: Install Python requirements
+        run: pip install python-twitter-v2 praw requests #-U redgifs #-r requirements.txt
+      - name: Run Feed
+        run: python main_feed_aw.py ${{secrets.REDDIT_CLIENT_ID}} ${{secrets.REDDIT_CLIENT_SECRET}} ${{secrets.REDDIT_PASSWORD}} ${{secrets.REDDIT_USER_AGENT}} ${{secrets.REDDIT_USER_NAME}} ${{secrets.TWITTER_ACCESS_TOKEN_AW}} ${{secrets.TWITTER_ACCESS_TOKEN_SECRET_AW}} ${{secrets.TWITTER_CONSUMER_KEY_AW}} ${{secrets.TWITTER_CONSUMER_SECRET_AW}} 
+      #- name: Set env vars
+      #  run: |
+      #    echo "DATE=$(python -c 'import datetime as dt; print(dt.datetime.now().date())')" >> $GITHUB_ENV
+      - name: Push to repository
+        run: |
+          git config --global user.name "goinggoinggone21"
+          git config --global user.email ${{secrets.GIT_USER_EMAIL}}
+          now=$(date)
+          git add -A
+          git commit -m "Auto Push on $now"
+          git push
