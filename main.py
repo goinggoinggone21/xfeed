@@ -59,8 +59,8 @@ twitter_api_authorized = Api(
 		access_token=input_args[6], #TWITTER_ACCESS_TOKEN_BL,
 		access_secret=input_args[7], #TWITTER_ACCESS_TOKEN_SECRET_BL
 		client_id = '1712104648881192960',
-		consumer_key = input_args[8], #TWITTER_CONSUMER_KEY
-		consumer_secret = input_args[9], #TWITTER_CONSUMER_SECRET
+		consumer_key = input_args[8], #TWITTER_CONSUMER_KEY_BL
+		consumer_secret = input_args[9], #TWITTER_CONSUMER_SECRET_BL
 	oauth_flow=True
 	)
 #red_gifs_api = redgifsAPI() #redgifs.API()

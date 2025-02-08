@@ -28,11 +28,11 @@ reddit = praw.Reddit(client_id=str(input_args[1]), #REDDIT_CLIENT_ID
 					 username=str(input_args[5]) #REDDIT_USER_NAME
 					 )
 twitter_api_authorized = Api(
-		access_token=input_args[6], #TWITTER_ACCESS_TOKEN,
-		access_secret=input_args[7], #TWITTER_ACCESS_TOKEN_SECRET
+		access_token=input_args[6], #TWITTER_ACCESS_TOKEN_AW,
+		access_secret=input_args[7], #TWITTER_ACCESS_TOKEN_SECRET_AW
 		client_id = '1829777330430230530',
-		consumer_key = input_args[8], #TWITTER_CONSUMER_KEY
-		consumer_secret = input_args[9], #TWITTER_CONSUMER_SECRET
+		consumer_key = input_args[8], #TWITTER_CONSUMER_KEY_AW
+		consumer_secret = input_args[9], #TWITTER_CONSUMER_SECRET_AW
 	oauth_flow=True
 	)
 
