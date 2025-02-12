@@ -44,8 +44,9 @@ star_subreddits = ['AngelaWhite','Miakhalifa','RileyReid','MiaMalkova','GabbieCa
 				   'NikkiBenz','JewelzBlu','NicoleDoshi','KarmaRx','IndicaFlower','eva_angelina','SukiSin',
 				   'AnnaBellPeaks','AnnaDeVille','SarahVandella','AmyAnderssen','Ashlynn_Brooke','BonnieRotten',
 				   'Cali_Carter','BrooklynChase','ChristyMack','EvaNotty','JaydenJaymes','JosephineJackson',
-				   'Katsumi','priyarai','SavannahBond','lanarhoades','AvaAddams','GinaValentina','KelsiMonroe',
-				   'StephanieMichelle']
+				   'Katsumi','priyarai','SavannahBond','lanarhoades','AvaAddams','GinaValentina','KelsiMonroe'#,
+				   #'StephanieMichelle'
+				   ]
 				   
 all_subreddits = list_of_subreddits+star_subreddits
 
@@ -89,6 +90,11 @@ except:
 	all_titles_ever = []
 
 filename = 'to_upload.mp4'
+
+try:
+    os.remove(filename)
+except OSError:
+    pass
 
 while not os.path.isfile(filename):
 	subreddits_to_choose_from = [x for x in all_subreddits if x not in todays_alreadysent_list]
