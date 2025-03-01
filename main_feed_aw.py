@@ -65,6 +65,18 @@ def find_images_in_reddit(subreddit, search):
 #list_test = find_images_in_reddit('ClassyPornstars','Angela White')
 #print(list_test)
 
+#Captions
+list_of_title_descriptions = ["","what'd you notice first?","what are we watching today?", "anything catch your eye?"
+"","what are you thankful for?", "drop your fav outfits", "thoughts on this fit?", "say mommy or else", "who's a good boy?",
+"","too blessed to be stressed","how long until you break?", "who's been busy?", "fit check!", "what's the longest you've gone?",
+"","rate this look 1-69", "what are you up to today?", "staring contest!", "what's been on your mind?", "reply guys >>", "thoughts?",
+"","what are you thinking about?","gf, wifey, or mistress?", "dom, sub, or switch?","staring again?", "attention is love",
+"","interacting doesn't cost a thing", "triggered?","what turns you on?","what's your green flag?","how long you lasting?",
+"","what are we up to today?","did you get your pump yet?","what are you up to?","what's your latest obsession?",
+"", "what's your green flag?", "what gets your going?", "who's working hard?", "favorite term of enderment atm?", "sometimes its polite to tare",
+""]
+
+imojis_list = ['🥰','😍','🤩','🫣','🥵','🥹','❤️‍🔥','🫶','👀','🫦','🔥','✨','💖','🤍','💟','💕','😘','💋','😇','😈','😏','💓','❣️']
 
 #Load Reddits
 list_of_subreddits = ['ModelsGoneMild','gentlemanboners',
@@ -127,11 +139,17 @@ try:
     #resp = api_authorized.upload_media_chunked_status(media_id=media_id)
     #print(resp)
 
+    tweet_text_interim = random.choice(list_of_title_descriptions)
+    if tweet_text_interim == "":
+        tweet_text_final = ""
+    else:
+        tweet_text_final = tweet_text_interim + ' ' + random.choice(imojis_list)
+    print('tweet_text_final: ',tweet_text_final)
     #tweet_text_final = helper.convert_hastag_to_at(original_title)
 
 
     twitter_api_authorized.create_tweet(
-    #   text=tweet_text_final,
+        text=tweet_text_final,
         media_media_ids=[media_id]
     )
 
