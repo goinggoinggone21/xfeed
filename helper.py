@@ -84,7 +84,7 @@ def convert_hastag_to_at(tweet_title_):
 	elif '#StephanieMichelle' in tweet_title_:
 		return tweet_title_.replace('#StephanieMichelle','@omystephanie')
 	elif '#MandyMuse' in tweet_title_:
-		return tweet_title_.replace('#MandyMuse','@MandyMuse69')
+		return tweet_title_.replace('#MandyMuse','@mandymusemedia')
 	elif '#KendraLust' in tweet_title_:
 		return tweet_title_.replace('#KendraLust','@KendraLust')
 	elif '#SyrenDeMer' in tweet_title_:
@@ -96,9 +96,9 @@ def convert_hastag_to_at(tweet_title_):
 	elif '#ConniePerignon' in tweet_title_:
 		return tweet_title_.replace('#ConniePerignon','@connperignon')
 	elif '#evaangelina' in tweet_title_:
-		return tweet_title_.replace('#evaangelina','@onlyevaangelina')
+		return tweet_title_.replace('#evaangelina','@EvaAngelinatv')#'@onlyevaangelina')
 	elif '#NatashaNice' in tweet_title_:
-		return tweet_title_.replace('#NatashaNice','@BeNiceNatasha \n \n https://onlyfans.com/benicenatasha')
+		return tweet_title_.replace('#NatashaNice','@BeNiceNatasha')# \n \n https://onlyfans.com/benicenatasha')
 	else:
 		return tweet_title_
 
