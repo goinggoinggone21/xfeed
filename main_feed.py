@@ -26,7 +26,7 @@ def get_tweet_title(reddit_title):
         #print('brackets ',brackets)
         final_twitter_title = brackets.title() + ' ' + random.choice(imojis_list)
         #print(final_twitter_title)
-        return final_twitter_title
+        return final_twitter_title.replace("'S","'s")
     except:
         print('No Brackets')
         final_twitter_title = random.choice(heart_imojis)*3
